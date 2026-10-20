@@ -33,13 +33,13 @@ public class DialogoService : IDialogoService
     private static Window? Dono => Application.Current?.MainWindow;
 
     public void Info(string mensagem) =>
-        MessageBox.Show(mensagem, "Controle Contábil", MessageBoxButton.OK, MessageBoxImage.Information);
+        MessageBox.Show(mensagem, "Radar Contábil", MessageBoxButton.OK, MessageBoxImage.Information);
 
     public void Aviso(string mensagem) =>
-        MessageBox.Show(mensagem, "Controle Contábil", MessageBoxButton.OK, MessageBoxImage.Warning);
+        MessageBox.Show(mensagem, "Radar Contábil", MessageBoxButton.OK, MessageBoxImage.Warning);
 
     public void Erro(string mensagem, Exception? ex = null) =>
-        MessageBox.Show(ex is null ? mensagem : $"{mensagem}\n\n{ex.Message}", "Controle Contábil",
+        MessageBox.Show(ex is null ? mensagem : $"{mensagem}\n\n{ex.Message}", "Radar Contábil",
             MessageBoxButton.OK, MessageBoxImage.Error);
 
     public bool Confirmar(string mensagem, string titulo = "Confirmação") =>

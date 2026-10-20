@@ -4,7 +4,8 @@
     <TargetFramework>net10.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
     <RootNamespace>ControleContabil.Desktop</RootNamespace>
-    <AssemblyName>ControleContabil</AssemblyName>
+    <AssemblyName>RadarContabil</AssemblyName>
+    <Product>Radar Contábil</Product>
     <ApplicationHighDpiMode>PerMonitorV2</ApplicationHighDpiMode>
   </PropertyGroup>
   <ItemGroup>

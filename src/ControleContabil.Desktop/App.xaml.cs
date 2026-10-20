@@ -32,7 +32,7 @@ public partial class App : Application
 
         DispatcherUnhandledException += (_, args) =>
         {
-            MessageBox.Show($"Ocorreu um erro inesperado:\n\n{args.Exception.Message}", "Controle Contábil",
+            MessageBox.Show($"Ocorreu um erro inesperado:\n\n{args.Exception.Message}", "Radar Contábil",
                 MessageBoxButton.OK, MessageBoxImage.Error);
             args.Handled = true;
         };
@@ -83,7 +83,7 @@ public partial class App : Application
             MessageBox.Show(
                 "Não foi possível iniciar o sistema.\n\n" + ex.Message +
                 "\n\nVerifique a conexão com o banco de dados e o arquivo appsettings.json.",
-                "Controle Contábil", MessageBoxButton.OK, MessageBoxImage.Error);
+                "Radar Contábil", MessageBoxButton.OK, MessageBoxImage.Error);
             Shutdown(1);
         }
     }

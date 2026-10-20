@@ -1,4 +1,4 @@
-# Controle Contábil
+# Radar Contábil
 
 Aplicativo desktop para apoiar a rotina de escritórios contábeis no acompanhamento de empresas clientes, obrigações fiscais e contábeis, prazos e fechamentos mensais. A proposta é centralizar o trabalho da equipe em um só lugar: organizar responsabilidades, acompanhar pendências, executar checklists por empresa e competência, armazenar documentos e consultar relatórios de produtividade e auditoria.
 

@@ -16,7 +16,7 @@ public sealed class MainWindow : Window
     {
         _viewModel = viewModel;
         DataContext = viewModel;
-        Title = "Controle Contábil";
+        Title = "Radar Contábil";
         Width = 1320;
         Height = 820;
         MinWidth = 980;
@@ -32,7 +32,7 @@ public sealed class MainWindow : Window
         var user = new StackPanel { Margin = new Thickness(18, 24, 18, 18) };
         user.Children.Add(new TextBlock
         {
-            Text = "CONTROLE CONTÁBIL",
+            Text = "RADAR CONTÁBIL",
             Foreground = Brushes.White,
             FontSize = 18,
             FontWeight = FontWeights.Bold
