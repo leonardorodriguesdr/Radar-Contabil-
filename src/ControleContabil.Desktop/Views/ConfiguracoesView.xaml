@@ -1,0 +1,61 @@
+<UserControl x:Class="ControleContabil.Desktop.Views.ConfiguracoesView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:infra="clr-namespace:ControleContabil.Desktop.Infra">
+    <TabControl>
+        <TabItem Header="Usuários">
+            <DockPanel Margin="10">
+                <WrapPanel DockPanel.Dock="Top" Margin="0,0,0,10">
+                    <Button Content="Novo usuário" Command="{Binding NovoUsuarioCommand}" Margin="0,0,8,0" Padding="12,7" />
+                    <Button Content="Editar usuário" Command="{Binding EditarUsuarioCommand}" Padding="12,7" />
+                </WrapPanel>
+                <DataGrid ItemsSource="{Binding Usuarios}" SelectedItem="{Binding UsuarioSelecionado}" IsReadOnly="True"
+                          AutoGenerateColumns="False" CanUserAddRows="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Nome" Binding="{Binding Nome}" Width="2*" />
+                        <DataGridTextColumn Header="E-mail" Binding="{Binding Email}" Width="2*" />
+                        <DataGridTextColumn Header="Login Windows" Binding="{Binding LoginWindows}" Width="*" />
+                        <DataGridTextColumn Header="Perfil" Binding="{Binding Perfil, Converter={StaticResource EnumRotulo}}" Width="*" />
+                        <DataGridCheckBoxColumn Header="Ativo" Binding="{Binding Ativo}" Width="70" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </DockPanel>
+        </TabItem>
+        <TabItem Header="Modelos de obrigação">
+            <DockPanel Margin="10">
+                <WrapPanel DockPanel.Dock="Top" Margin="0,0,0,10">
+                    <Button Content="Novo modelo" Command="{Binding NovoModeloObrigacaoCommand}" Margin="0,0,8,0" Padding="12,7" />
+                    <Button Content="Editar modelo" Command="{Binding EditarModeloObrigacaoCommand}" Padding="12,7" />
+                </WrapPanel>
+                <DataGrid ItemsSource="{Binding ModelosObrigacao}" SelectedItem="{Binding ModeloObrigacaoSelecionado}" IsReadOnly="True"
+                          AutoGenerateColumns="False" CanUserAddRows="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Nome" Binding="{Binding Nome}" Width="2*" />
+                        <DataGridTextColumn Header="Tipo" Binding="{Binding Tipo, Converter={StaticResource EnumRotulo}}" Width="*" />
+                        <DataGridTextColumn Header="Periodicidade" Binding="{Binding Periodicidade, Converter={StaticResource EnumRotulo}}" Width="*" />
+                        <DataGridTextColumn Header="Regra" Binding="{Binding Regra, Converter={StaticResource EnumRotulo}}" Width="*" />
+                        <DataGridTextColumn Header="Regimes" Binding="{Binding RegimesAplicaveis, Converter={StaticResource EnumRotulo}}" Width="2*" />
+                        <DataGridCheckBoxColumn Header="Ativo" Binding="{Binding Ativo}" Width="70" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </DockPanel>
+        </TabItem>
+        <TabItem Header="Modelos de checklist">
+            <DockPanel Margin="10">
+                <WrapPanel DockPanel.Dock="Top" Margin="0,0,0,10">
+                    <Button Content="Novo modelo" Command="{Binding NovoModeloChecklistCommand}" Margin="0,0,8,0" Padding="12,7" />
+                    <Button Content="Editar modelo" Command="{Binding EditarModeloChecklistCommand}" Padding="12,7" />
+                </WrapPanel>
+                <DataGrid ItemsSource="{Binding ModelosChecklist}" SelectedItem="{Binding ModeloChecklistSelecionado}" IsReadOnly="True"
+                          AutoGenerateColumns="False" CanUserAddRows="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Nome" Binding="{Binding Nome}" Width="2*" />
+                        <DataGridTextColumn Header="Regimes" Binding="{Binding RegimesAplicaveis, Converter={StaticResource EnumRotulo}}" Width="2*" />
+                        <DataGridTextColumn Header="Empresa específica" Binding="{Binding EmpresaId}" Width="*" />
+                        <DataGridCheckBoxColumn Header="Ativo" Binding="{Binding Ativo}" Width="70" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </DockPanel>
+        </TabItem>
+    </TabControl>
+</UserControl>

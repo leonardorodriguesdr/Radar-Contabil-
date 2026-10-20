@@ -1,0 +1,32 @@
+<Application x:Class="ControleContabil.Desktop.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:conv="clr-namespace:ControleContabil.Desktop.Infra"
+             xmlns:vm="clr-namespace:ControleContabil.Desktop.ViewModels"
+             xmlns:views="clr-namespace:ControleContabil.Desktop.Views">
+    <!-- A inicialização é feita em App.OnStartup (banco, identificação do usuário e janela principal). -->
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <materialDesign:BundledTheme BaseTheme="Light" PrimaryColor="Indigo" SecondaryColor="Teal" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesign3.Defaults.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <conv:EnumRotuloConverter x:Key="EnumRotulo" />
+            <conv:CnpjConverter x:Key="Cnpj" />
+            <conv:UtcLocalConverter x:Key="UtcLocal" />
+            <conv:SituacaoBrushConverter x:Key="SituacaoBrush" />
+            <BooleanToVisibilityConverter x:Key="BoolToVis" />
+
+            <!-- Navegação: cada ViewModel de página é exibido pela sua View. -->
+            <DataTemplate DataType="{x:Type vm:DashboardViewModel}"><views:DashboardView /></DataTemplate>
+            <DataTemplate DataType="{x:Type vm:EmpresasViewModel}"><views:EmpresasView /></DataTemplate>
+            <DataTemplate DataType="{x:Type vm:ObrigacoesViewModel}"><views:ObrigacoesView /></DataTemplate>
+            <DataTemplate DataType="{x:Type vm:ChecklistsViewModel}"><views:ChecklistsView /></DataTemplate>
+            <DataTemplate DataType="{x:Type vm:DocumentosViewModel}"><views:DocumentosView /></DataTemplate>
+            <DataTemplate DataType="{x:Type vm:RelatoriosViewModel}"><views:RelatoriosView /></DataTemplate>
+            <DataTemplate DataType="{x:Type vm:ConfiguracoesViewModel}"><views:ConfiguracoesView /></DataTemplate>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

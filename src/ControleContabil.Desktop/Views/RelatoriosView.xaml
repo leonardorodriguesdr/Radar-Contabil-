@@ -1,0 +1,66 @@
+<UserControl x:Class="ControleContabil.Desktop.Views.RelatoriosView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:infra="clr-namespace:ControleContabil.Desktop.Infra">
+    <DockPanel>
+        <WrapPanel DockPanel.Dock="Top" Margin="0,0,0,12">
+            <DatePicker SelectedDate="{Binding DeDatePicker}" Margin="0,0,8,8" />
+            <DatePicker SelectedDate="{Binding AteDatePicker}" Margin="0,0,8,8" />
+            <ComboBox Width="220" ItemsSource="{Binding UsuariosFiltro}" DisplayMemberPath="Nome" SelectedItem="{Binding UsuarioAuditoria}" Margin="0,0,8,8" />
+            <TextBox Width="200" Padding="6" ToolTip="Buscar na auditoria" Text="{Binding TextoAuditoria, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,8,8" />
+            <Button Content="Aplicar filtros" Command="{Binding AplicarCommand}" Padding="12,7" Margin="0,0,8,8" />
+        </WrapPanel>
+        <TabControl>
+            <TabItem Header="Produtividade">
+                <DockPanel Margin="8">
+                    <Button DockPanel.Dock="Top" Content="Exportar CSV" Command="{Binding ExportarProdutividadeCommand}" HorizontalAlignment="Right" Padding="12,7" Margin="0,0,0,8" />
+                    <DataGrid ItemsSource="{Binding Produtividade}" IsReadOnly="True" AutoGenerateColumns="False" CanUserAddRows="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Analista" Binding="{Binding Analista}" Width="2*" />
+                            <DataGridTextColumn Header="Total" Binding="{Binding Total}" Width="*" />
+                            <DataGridTextColumn Header="Concluídas" Binding="{Binding Concluidas}" Width="*" />
+                            <DataGridTextColumn Header="No prazo" Binding="{Binding ConcluidasNoPrazo}" Width="*" />
+                            <DataGridTextColumn Header="Com atraso" Binding="{Binding ConcluidasComAtraso}" Width="*" />
+                            <DataGridTextColumn Header="Em aberto" Binding="{Binding EmAberto}" Width="*" />
+                            <DataGridTextColumn Header="Atrasadas" Binding="{Binding Atrasadas}" Width="*" />
+                            <DataGridTextColumn Header="% conclusão" Binding="{Binding PercConclusao, StringFormat={}{0}%}" Width="*" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </DockPanel>
+            </TabItem>
+            <TabItem Header="Pendências por cliente">
+                <DockPanel Margin="8">
+                    <Button DockPanel.Dock="Top" Content="Exportar CSV" Command="{Binding ExportarPendenciasCommand}" HorizontalAlignment="Right" Padding="12,7" Margin="0,0,0,8" />
+                    <DataGrid ItemsSource="{Binding Pendencias}" IsReadOnly="True" AutoGenerateColumns="False" CanUserAddRows="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Empresa" Binding="{Binding Empresa}" Width="2*" />
+                            <DataGridTextColumn Header="CNPJ" Binding="{Binding Cnpj}" Width="*" />
+                            <DataGridTextColumn Header="Regime" Binding="{Binding RegimeTexto}" Width="*" />
+                            <DataGridTextColumn Header="Analista" Binding="{Binding Analista}" Width="*" />
+                            <DataGridTextColumn Header="Abertas" Binding="{Binding Abertas}" Width="*" />
+                            <DataGridTextColumn Header="Atrasadas" Binding="{Binding Atrasadas}" Width="*" />
+                            <DataGridTextColumn Header="Próximas" Binding="{Binding Proximas}" Width="*" />
+                            <DataGridTextColumn Header="Próximo vencimento" Binding="{Binding ProximoVencimento, StringFormat=dd/MM/yyyy}" Width="*" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </DockPanel>
+            </TabItem>
+            <TabItem Header="Auditoria">
+                <DockPanel Margin="8">
+                    <Button DockPanel.Dock="Top" Content="Exportar CSV" Command="{Binding ExportarAuditoriaCommand}" HorizontalAlignment="Right" Padding="12,7" Margin="0,0,0,8" />
+                    <DataGrid ItemsSource="{Binding Auditoria}" IsReadOnly="True" AutoGenerateColumns="False" CanUserAddRows="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Data/hora" Binding="{Binding DataHoraLocal, StringFormat=dd/MM/yyyy HH:mm}" Width="*" />
+                            <DataGridTextColumn Header="Usuário" Binding="{Binding Usuario}" Width="*" />
+                            <DataGridTextColumn Header="Ação" Binding="{Binding Acao}" Width="*" />
+                            <DataGridTextColumn Header="Entidade" Binding="{Binding Entidade}" Width="*" />
+                            <DataGridTextColumn Header="Descrição" Binding="{Binding Descricao}" Width="2*" />
+                            <DataGridTextColumn Header="Empresa" Binding="{Binding Empresa}" Width="*" />
+                            <DataGridTextColumn Header="Detalhes" Binding="{Binding Detalhes}" Width="2*" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </DockPanel>
+            </TabItem>
+        </TabControl>
+    </DockPanel>
+</UserControl>
